@@ -1,0 +1,65 @@
+version: '3.9'
+services: 
+  postgres_db:
+    image: postgres:15
+    networks:
+      - database
+    environment:
+      - PGUSER=user
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=qwerty
+      - POSTGRES_DB=postgres_dbw
+    restart: always
+    volumes:
+      - postrgres-data:/var/lib/postgresql/data
+    container_name: postgres_db
+
+  backend:
+    build:
+      context: ./backend
+    networks:
+      - webapp
+      - database
+    ports:
+      - 4242:4242 # the default Java backend port
+      - 5500:5500 # I think it's postgresql
+      - 5555:5555 # prisma java
+    # volumes:
+    #   - 
+    depends_on:
+      - postgres_db
+    restart: always
+    container_name: backend
+
+  frontend:
+    build: 
+      context: ./frontend
+    # env_file:
+      # - ./frontend/.env
+    volumes:
+      - ./frontend/src:/app/frontend/src
+      - ./frontend/public:/app/frontend/public
+    networks:
+      - webapp
+    ports:
+      - 4200:4200
+    stdin_open: true
+    restart: always
+    container_name: frontend
+
+networks:
+  webapp:
+    driver: bridge
+  database:
+    driver: bridge
+
+volumes:
+  postrgres-data:
+
+
+
+
+
+
+
+
