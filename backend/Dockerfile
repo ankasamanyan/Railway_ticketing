@@ -1,25 +1,16 @@
-# Use a base image with Java 17
-FROM alpine:latest
-#FROM maven:3.9.4-alpine
-#FROM 3.9.4-eclipse-temurin-11-alpine
-#FROM 3.9.4-eclipse-temurin-11
+FROM node:18-alpine
+RUN npm install -g typescript
+WORKDIR /backend
 
-# Set the working directory in the container
-WORKDIR /app
+COPY package*.json ./
+COPY . .
+RUN npm install
 
-# Copy the Maven project to the container
-COPY . /app
+RUN npx prisma generate
+RUN chmod 777 start.sh
 
-RUN apk update
-RUN apk add openjdk17
-RUN apk add maven
+#RUN npm run build
 
-# Build the Maven project and create a JAR file
-RUN mvn compile
-RUN mvn package
-
-# Expose the port the app runs on
-EXPOSE 8080
-
-# Run the application
-CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
+EXPOSE 5500
+CMD ["./start.sh"]
+#CMD ["npm", "run", "start"]

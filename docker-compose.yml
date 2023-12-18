@@ -55,11 +55,3 @@ networks:
 
 volumes:
   postrgres-data:
-
-
-
-
-
-
-
-
