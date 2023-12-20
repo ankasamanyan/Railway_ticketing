@@ -1,0 +1,29 @@
+generator client {
+	provider = "prisma-client-js"
+	binaryTargets = ["native", "linux-musl-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+datasource backend_database {
+	provider	= "postgresql"
+	url			= env("DATABASE_URL")
+}
+
+model Station {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  departures  Train[]  @relation("DepartureStation")
+  arrivals    Train[]  @relation("ArrivalStation")
+}
+
+model Train {
+  id              Int      @id @default(autoincrement())
+  departure       Station  @relation("DepartureStation", fields: [departureId], references: [id])
+  departureId     Int
+  arrival         Station  @relation("ArrivalStation", fields: [arrivalId], references: [id])
+  arrivalId       Int
+  departureTime   DateTime
+  arrivalTime     DateTime
+}
+
+
+

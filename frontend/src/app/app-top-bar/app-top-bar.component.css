@@ -1,0 +1,56 @@
+.topbar {
+	/* color: #6c55be; */
+	padding: 20px 10px;
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* position: fixed; */
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+.topbar a {
+	color: #6c55be;
+	text-decoration: none;
+	margin: 0 35px; 
+    border: 2px solid transparent;
+}
+
+.company-name {
+    color: #be55b7;
+    margin: 0 50px;
+    font-size: larger;
+}
+
+.links {
+    margin-right:50px;
+    font-size: large;
+}
+
+.links a {
+    margin-left:10px;
+}
+
+.links a:hover {
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 2px solid #6c55be;
+}
+
+#register {
+    color: #be55b7;
+    border: 2px solid #be55b7;
+	display: inline-block;
+	text-decoration: none;
+	padding: 5px 15px;
+	border-radius: 10px;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#register:hover {
+    color: #fff;
+    background-color: #be55b7;
+    border-color: transparent;
+}
