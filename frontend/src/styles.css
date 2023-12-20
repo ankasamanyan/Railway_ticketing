@@ -1,4 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     margin: 0;
+    /* background: rgb(238,174,202); */
+    background: radial-gradient(circle, rgb(245, 194, 216) 1%, rgba(178, 206, 239, 0.453) 100%);
+}
+
+.button {
+    color: #be55b7;
+    border: 2px solid #be55b7;
+	display: inline-block;
+	text-decoration: none;
+	padding: 5px 15px;
+	border-radius: 10px;
+    background-color: transparent;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.button:hover {
+    color: #fff;
+    background-color: #be55b7;
+    border-color: transparent;
 }
