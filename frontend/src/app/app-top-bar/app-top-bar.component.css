@@ -1,5 +1,5 @@
 .topbar {
-	/* color: #6c55be; */
+    margin-top: 15px;
 	padding: 20px 10px;
 	font-size: 20px;
 	display: flex;
@@ -20,31 +20,42 @@
 }
 
 .company-name {
-    margin: 0 50px;
+    margin: 0 15px;
     font-size: larger;
+    font-weight: 600;
+}
+
+.company-name a {
+    background-image: linear-gradient(45deg, #564498, #be55b7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .links {
     margin-right:50px;
-    font-size: large;
+    font-size: 18px;
 }
 
 .links a {
     margin-left:10px;
+    padding: 5px 15px;
 }
 
 .links a:hover {
-    padding: 5px 15px;
-    border-radius: 10px;
-    border: 2px solid #6c55be;
+    color: #be55b7;
+    /* border-radius: 10px; */
+    border-bottom: 2px solid #be55b7;
+    ;
 }
 
 #register {
     color: #be55b7;
+    font-size: 15px;
     border: 2px solid #be55b7;
 	display: inline-block;
 	text-decoration: none;
-	padding: 5px 15px;
+	padding: 7px 15px;
 	border-radius: 10px;
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -53,4 +64,15 @@
     color: #fff;
     background-color: #be55b7;
     border-color: transparent;
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    #register {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    
 }

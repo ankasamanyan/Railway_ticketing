@@ -3,74 +3,77 @@
     margin: 0;
     display: flex;
     justify-content: center;
+    flex-direction: column; 
     align-items: center;
-    font-family: Arial, sans-serif;
     overflow: hidden;
   }
-
+  
   .container {
     background-color: rgba(255, 255, 255, 0.256);
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 300px;
     max-width: 1300px;
     width: calc(80% - 20px);
+    position: relative;
   }
-
- header {
+  
+  .header {
+    margin-top: 50px;
+    margin-bottom: 50px;
     text-align: center;
-    margin-bottom: 20px;
     color: #564498;
   }
 
+ .header h1 {
+    font-weight: 300;
+    background-image: linear-gradient(45deg, #564498, #be55b7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
   .container form {
+    top:0;
     display: flex;
-    flex-direction: row; /* Set to row for inline fields */
+    flex-direction: row; 
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
+    margin: 80px;
   }
-
-  .container label {
-    margin-right: 10px;
-    color: #564498; /* Set the primary text color */
-  }
-
+  
   .container input {
-    padding: 8px;
-    margin-bottom: 15px;
-    border: none; /* Remove the border */
-    border-radius: 10px; /* Remove border-radius */
+    font-size:medium;
+    align-content: normal;
+    padding: 15px 50px;
+    margin:10px;
+    border: none;
+    border-radius: 10px;
     width: 25%;
   }
-/* 
-  .container button {
-    padding: 10px;
-    background-color: #be55b7;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  } */
-
+   
+  .button {
+    font-size:medium;
+    padding: 15px 75px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
   .container button:hover {
     background-color: #a0418e;
+    cursor: pointer;
   }
 
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 0%;
+  @media (max-width: 1000px) {
+
+    .container form {
+        flex-direction: column;
+        align-items: center;
     }
-    25% {
-      background-position: 100% 0%;
-    }
-    50% {
-      background-position: 100% 100%;
-    }
-    75% {
-      background-position: 0% 100%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
+    .button {
+        font-size:medium;
+        padding: 15px 35px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    
   }
