@@ -15,11 +15,11 @@
     max-width: 1300px;
     width: calc(80% - 20px);
     position: relative;
+
   }
   
   .header {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: center;
     color: #564498;
   }
@@ -30,8 +30,13 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+}
+
+.header h3 {
+    font-weight: 100;
+    color:#564498;
   }
-  
+
   .container form {
     top:0;
     display: flex;
@@ -44,7 +49,7 @@
   .container input {
     font-size:medium;
     align-content: normal;
-    padding: 15px 50px;
+    padding: 15px 10px;
     margin:10px;
     border: none;
     border-radius: 10px;
@@ -59,7 +64,7 @@
   }
   
   .container button:hover {
-    background-color: #a0418e;
+    background-color: #be55b7;
     cursor: pointer;
   }
 
@@ -69,9 +74,14 @@
         flex-direction: column;
         align-items: center;
     }
+
+    .header {
+        margin-top: 100px;
+    }
+
     .button {
         font-size:medium;
-        padding: 15px 35px;
+        padding: 15px 55px;
         margin-left: 20px;
         margin-right: 20px;
       }
