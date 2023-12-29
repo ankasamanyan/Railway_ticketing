@@ -7,7 +7,7 @@ services:
     environment:
       - PGUSER=user
       - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=qwerty
+      - POSTGRES_PASSWORD=password123
       - POSTGRES_DB=postgres_dbw
     restart: always
     volumes:
@@ -21,24 +21,25 @@ services:
       - webapp
       - database
     ports:
-      - 4242:4242 # the default Java backend port
+      - 3000:3000 # the default nestJs backend port
       - 5500:5500 # I think it's postgresql
-      - 5555:5555 # prisma java
-    # volumes:
-    #   - 
+      - 5555:5555 # prisma
+    volumes:
+      - ./backend/prisma:/backend/prisma
+      - ./backend/src:/backend/src
     depends_on:
       - postgres_db
     restart: always
     container_name: backend
 
   frontend:
-    build: 
+    build:
       context: ./frontend
     # env_file:
       # - ./frontend/.env
     volumes:
-      - ./frontend/src:/app/frontend/src
-      - ./frontend/public:/app/frontend/public
+      - ./frontend/src:/frontend/src
+      - ./frontend/public:/frontend/public
     networks:
       - webapp
     ports:

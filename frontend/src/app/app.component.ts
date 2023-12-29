@@ -6,10 +6,15 @@ import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, AppTopBarComponent],
+  imports: 
+  [
+    CommonModule,
+    RouterOutlet, 
+    AppTopBarComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'frontend';
+  title = '✨JustTrains✨';
 }

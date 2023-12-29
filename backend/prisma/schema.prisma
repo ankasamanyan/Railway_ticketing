@@ -23,7 +23,13 @@ model Train {
   arrivalId       Int
   departureTime   DateTime
   arrivalTime     DateTime
+  price           Int
 }
 
-
+// model Ticket {
+//   departure       String
+//   arrival         String
+//   departureTime   DateTime
+//   price           Int
+// }
 
