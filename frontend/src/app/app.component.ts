@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
   [
     CommonModule,
     RouterOutlet, 
-    AppTopBarComponent
+    AppTopBarComponent,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

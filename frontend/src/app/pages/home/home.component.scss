@@ -71,6 +71,21 @@
     cursor: pointer;
   }
 
+  /* .mat-thingy {
+    border-radius: 20px;
+    border: red solid 1px;
+  }
+   */
+  ::ng-deep {
+
+    .panelClass-thingy
+    {
+      border-radius: 20px;
+      border: red solid 1px;
+  
+    }
+  }
+
   @media (max-width: 1000px) {
 
     .container form {

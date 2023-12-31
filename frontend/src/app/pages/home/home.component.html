@@ -4,26 +4,26 @@
       <h3>Book your ticket now</h3>
     </div>
     <div class="container">
-      <form>
-      <mat-form-field>
+      <form >
+        <div class="mat-thingy" >
+      <mat-form-field panelClass="panelClass-thingy" >
         <mat-label>Departure</mat-label>
-        <mat-select>
-          <mat-option  *ngFor="let item of dropdownData" >
-            {{dropdownData}}
-          </mat-option>
-          <mat-option>Berlin</mat-option>
-        </mat-select>
-      </mat-form-field>
+          <mat-select >
+            <mat-option  *ngFor="let item of dropdownData">
+              {{item}}
+            </mat-option>
+            <mat-option>Berlin</mat-option>
+          </mat-select>
+          
+        </mat-form-field>
+      </div>
       <mat-form-field>
         <mat-label>Arrival</mat-label>
         <mat-select>
-          <mat-option>Bremen</mat-option>
-          <mat-option>Frankfurt</mat-option>
+          <!-- <mat-option>Bremen</mat-option>
+          <mat-option>Frankfurt</mat-option> -->
         </mat-select>
       </mat-form-field>
-        <!-- <input matNativeControl type="text" id="departureCity" name="departureCity" placeholder="Departure ">
-        <input type="text" id="destinationCity" name="destinationCity" placeholder="Destination ">
-        <input type="time" id="destinationCity" name="destinationCity" placeholder="Departure Time"> -->
         <button type="submit" class="button">Search</button>
       </form>
     </div>

@@ -18,10 +18,7 @@ export class StationController {
 
     @Get('arrival')
     async   arrival():Promise <any> {
-        return [
-        {id: 1, value:'Bremen'},
-        {id: 2, value: 'Frankfurt'},
-        {id: 3, value: 'Hamburg'}
+        return [ "Halp", "Capybara", "Home"
     ];
     } 
 }

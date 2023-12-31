@@ -1,15 +1,14 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { get } from 'http';
-import { Console } from 'console';
+import { HttpClientModule } from '@angular/common/http';
 import { NgFor } from '@angular/common';
+import { HomeService } from '../../home.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -26,25 +25,30 @@ import { NgFor } from '@angular/common';
     MatInputModule,
     MatMenuModule,
     MatSelectModule,
-    NgFor
+    NgFor,
+    HttpClientModule
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.scss',
+  providers: 
+  [
+    HomeService
+  ]
 })
 
-export class HomeComponent {
-  private backendUrl = 'http://localhost:3000'
-  public dropdownData: any[] = [];
+export class HomeComponent implements OnInit {
   
-  async getDropdownData(){
-    console.log("allo");
-      let response =  await fetch (`${this.backendUrl}/station/arrival`,
-      {
-        method: "Get",
-      });
-      let data = await response.json();
-      this.dropdownData.push(data);
-      console.log(this.dropdownData);
+    public dropdownData: any[] = [];
 
+    constructor(private homeService: HomeService){}
+
+    private getArrival(){
+      this.homeService.getArrival().subscribe( (result) => { 
+        this.dropdownData = result;
+      })
+    }
+
+    ngOnInit(): void {
+      this.getArrival();
     }
   }
