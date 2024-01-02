@@ -1,36 +1,5 @@
 version: '3.9'
 services: 
-  postgres_db:
-    image: postgres:15
-    networks:
-      - database
-    environment:
-      - PGUSER=user
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password123
-      - POSTGRES_DB=postgres_dbw
-    restart: always
-    volumes:
-      - postrgres-data:/var/lib/postgresql/data
-    container_name: postgres_db
-
-  backend:
-    build:
-      context: ./backend
-    networks:
-      - webapp
-      - database
-    ports:
-      - 3000:3000 # the default nestJs backend port
-      - 5500:5500 # I think it's postgresql
-      - 5555:5555 # prisma
-    volumes:
-      - ./backend/prisma:/backend/prisma
-      - ./backend/src:/backend/src
-    depends_on:
-      - postgres_db
-    restart: always
-    container_name: backend
 
   frontend:
     build:
@@ -43,16 +12,47 @@ services:
     networks:
       - webapp
     ports:
-      - 4200:4200
+      - "4200:4200"
     stdin_open: true
     restart: always
     container_name: frontend
 
-networks:
-  webapp:
-    driver: bridge
-  database:
-    driver: bridge
+  backend:
+    build: ./backend
+    ports:
+      - "3003:3003" # custom backend nestjs port
+      - "5555:5555" # prisma
+    environment:
+      - DB_URL=postgresql://user:password123@db:5432/postgres_db?schema=public
+    volumes:
+      - ./backend/prisma:/backend/prisma # for dev experience, remove for prod
+      - ./backend/src:/backend/src # for dev experience, remove for prod
+    networks:
+      - database
+      - webapp
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    environment:
+      - PGUSER=user
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=postgres_dbw
+    networks:
+      - database
 
 volumes:
-  postrgres-data:
+  db_volume:
+  front_volume:
+networks:
+  database:
+    driver: bridge
+  webapp:
+    driver: bridge

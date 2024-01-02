@@ -6,9 +6,9 @@ export class StationService {
     constructor (private prisma: PrismaService)
     {}
 
-    // async test () {
-    //     this.prisma.train.findUnique({
-    //         where: { id: 12 },
-    //     })
-    // }
+    async test () {
+        this.prisma.train.findUnique({
+            where: { id: 12 },
+        })
+    }
 }
