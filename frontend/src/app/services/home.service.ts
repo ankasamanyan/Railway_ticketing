@@ -7,12 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class HomeService {
 
+  constructor (private http: HttpClient) {}
+
   private backendUrl = 'http://localhost:3000'
 
-  constructor( private http: HttpClient) {}
-
-  
-  public getArrival(): Observable <any> {
+  public getArrivalData(): Observable <any> {
     return this.http.get<any>(`${this.backendUrl}/station/arrival`);
   }
+
+  public getDepartureData(): Observable <any> {
+    return this.http.get<any>(`${this.backendUrl}/station/departure`);
+  }
+
 }

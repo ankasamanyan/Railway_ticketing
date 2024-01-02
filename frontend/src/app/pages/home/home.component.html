@@ -5,26 +5,43 @@
     </div>
     <div class="container">
       <form >
-        <div class="mat-thingy" >
-      <mat-form-field panelClass="panelClass-thingy" >
-        <mat-label>Departure</mat-label>
-          <mat-select >
-            <mat-option  *ngFor="let item of dropdownData">
-              {{item}}
-            </mat-option>
-            <mat-option>Berlin</mat-option>
-          </mat-select>
-          
-        </mat-form-field>
-      </div>
-      <mat-form-field>
-        <mat-label>Arrival</mat-label>
-        <mat-select>
-          <!-- <mat-option>Bremen</mat-option>
-          <mat-option>Frankfurt</mat-option> -->
+
+      <mat-form-field >
+        <mat-label>
+          Departure
+        </mat-label>
+        <mat-select required>
+          <mat-option [value]="departureCityName" *ngFor="let departureCityName of departureDropdownData">
+            {{departureCityName}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
-        <button type="submit" class="button">Search</button>
+
+      <mat-form-field>
+        <mat-label>
+          Arrival
+        </mat-label>
+        <mat-select  required>
+          <mat-option [value]="arrivalCityName" *ngFor="let arrivalCityName of arrivalDropdownData">
+            {{arrivalCityName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-label>
+          Departure Time
+        </mat-label>
+        <mat-select >
+          <mat-option *ngFor="let time of timeTable">
+            {{time}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+        <button type="submit" class="button">
+          Search
+        </button>
       </form>
     </div>
 </div>

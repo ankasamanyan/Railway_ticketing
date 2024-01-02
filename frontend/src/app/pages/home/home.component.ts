@@ -7,7 +7,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { NgFor } from '@angular/common';
-import { HomeService } from '../../home.service';
+import { HomeService } from '../../services/home.service';
+import {FormsModule} from '@angular/forms';
 
 
 @Injectable({
@@ -26,29 +27,43 @@ import { HomeService } from '../../home.service';
     MatMenuModule,
     MatSelectModule,
     NgFor,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   providers: 
   [
-    HomeService
+    HomeService,
   ]
 })
 
 export class HomeComponent implements OnInit {
   
-    public dropdownData: any[] = [];
+    public departureDropdownData: any[] = [];
+    public arrivalDropdownData: any[] = [];
+    public timeTable: any[] = [];
 
     constructor(private homeService: HomeService){}
 
-    private getArrival(){
-      this.homeService.getArrival().subscribe( (result) => { 
-        this.dropdownData = result;
+    /* getting the data for the dropdowns */
+    private getArrivalData(){
+      this.homeService.getArrivalData().subscribe( (result) => { 
+        this.arrivalDropdownData = result;
+      })
+    }
+
+    private getDepartreData(){
+      this.homeService.getDepartureData().subscribe((result) => {
+        this.departureDropdownData = result;
       })
     }
 
     ngOnInit(): void {
-      this.getArrival();
+
+      /* initialising dropdown data */
+      this.getArrivalData();
+      this.getDepartreData();
+
     }
   }

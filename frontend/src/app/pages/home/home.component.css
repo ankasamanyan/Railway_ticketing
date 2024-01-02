@@ -64,6 +64,7 @@
     padding: 15px 75px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 22px;
   }
   
   .container button:hover {
@@ -71,19 +72,10 @@
     cursor: pointer;
   }
 
-  /* .mat-thingy {
-    border-radius: 20px;
-    border: red solid 1px;
-  }
-   */
-  ::ng-deep {
-
-    .panelClass-thingy
-    {
-      border-radius: 20px;
-      border: red solid 1px;
-  
-    }
+  ::ng-deep mat-form-field {
+    margin: 5px;
+    width: 300px;
+    border-radius: 15px;
   }
 
   @media (max-width: 1000px) {
