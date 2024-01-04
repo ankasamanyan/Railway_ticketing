@@ -20,7 +20,8 @@ services:
   backend:
     build: ./backend
     ports:
-      - "3003:3003" # custom backend nestjs port
+      - "3000:3000" # custom backend nestjs port
+      - "5500:5500" 
       - "5555:5555" # prisma
     environment:
       - DB_URL=postgresql://user:password123@db:5432/postgres_db?schema=public

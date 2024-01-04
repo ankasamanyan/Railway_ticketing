@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { get } from 'http';
 import { StationService } from './station.service';
+import { log } from 'console';
 
 @Controller('station')
 export class StationController {
@@ -9,13 +10,11 @@ export class StationController {
     
     @Get('departure')
     async   departure():Promise <any> {
-        /* there has to be a call to a database, but we're not there yet :))))  */
-        return ['Paris', 'Berlin', 'Rome'];
+        return await this.stationService.getDepartureData(); 
     }
 
     @Get('arrival')
     async   arrival():Promise <any> {
-        /* there has to be a call to a database, but we're not there yet :))))  */
-        return [ "Berlin", "Frankfurt", "Wolfsburg"];
+        return await this.stationService.getArrivalData();
     } 
 }

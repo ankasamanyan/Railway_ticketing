@@ -31,36 +31,42 @@ import {FormsModule} from '@angular/forms';
     FormsModule
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  styleUrl: './home.component.css',
   providers: 
   [
     HomeService,
   ]
 })
 
+
+
 export class HomeComponent implements OnInit {
-  
+
     public departureDropdownData: any[] = [];
+    public departureDropdownProperties: any[] = [];
+    
     public arrivalDropdownData: any[] = [];
+    public arrivalDropdownProperties: any[] = [];
     public timeTable: any[] = [];
 
     constructor(private homeService: HomeService){}
 
     /* getting the data for the dropdowns */
+    
+    private getDepartreData(){
+      this.homeService.getDepartureData().subscribe( (result) => {
+        this.departureDropdownData = result;
+      })
+    }
+
     private getArrivalData(){
       this.homeService.getArrivalData().subscribe( (result) => { 
         this.arrivalDropdownData = result;
       })
     }
-
-    private getDepartreData(){
-      this.homeService.getDepartureData().subscribe((result) => {
-        this.departureDropdownData = result;
-      })
-    }
+    /*  */
 
     ngOnInit(): void {
-
       /* initialising dropdown data */
       this.getArrivalData();
       this.getDepartreData();

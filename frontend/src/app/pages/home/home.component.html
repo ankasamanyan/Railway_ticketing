@@ -11,37 +11,26 @@
           Departure
         </mat-label>
         <mat-select required>
-          <mat-option [value]="departureCityName" *ngFor="let departureCityName of departureDropdownData">
-            {{departureCityName}}
+          <mat-option *ngFor="let departureCity of departureDropdownData" [value]="departureCity.name">
+          {{departureCity.name}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-
+      <mat-icon svgIcon="thumbs-up" ></mat-icon>
       <mat-form-field>
         <mat-label>
           Arrival
         </mat-label>
         <mat-select  required>
-          <mat-option [value]="arrivalCityName" *ngFor="let arrivalCityName of arrivalDropdownData">
-            {{arrivalCityName}}
+          <mat-option [value]="arrivalCity" *ngFor="let arrivalCity of arrivalDropdownData">
+            {{arrivalCity.name}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-
-      <!-- <mat-form-field>
-        <mat-label>
-          Departure Time
-        </mat-label>
-        <mat-select >
-          <mat-option *ngFor="let time of timeTable">
-            {{time}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field> -->
-
         <button type="submit" class="button">
           Search
         </button>
+
       </form>
     </div>
 </div>

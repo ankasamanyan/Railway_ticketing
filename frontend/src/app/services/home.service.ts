@@ -11,12 +11,12 @@ export class HomeService {
 
   private backendUrl = 'http://localhost:3000'
 
-  public getArrivalData(): Observable <any> {
-    return this.http.get<any>(`${this.backendUrl}/station/arrival`);
-  }
-
-  public getDepartureData(): Observable <any> {
+  public getDepartureData(): Observable <any[]> {
     return this.http.get<any>(`${this.backendUrl}/station/departure`);
   }
-
+  
+  public getArrivalData(): Observable <any[]> {
+    return this.http.get<any>(`${this.backendUrl}/station/arrival`);
+  }
+  
 }
