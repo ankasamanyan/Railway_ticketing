@@ -1,0 +1,139 @@
+.body {
+    display: flex;
+    margin-top: 20px;
+    width: calc(100% - 20px);
+  }
+  
+  .sidebar {
+    margin-left: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+  }
+  
+  .filter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .filter {
+    margin: 10px 0;
+  }
+  
+  .apply-filters-button {
+    font-size: medium;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.256);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(75% - 20px);
+    position: relative;
+    margin: 0 20px;
+  }
+    
+  .header {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #564498;
+  }
+  
+  h1 {
+    margin-top: 50px;
+    font-weight: 600;
+    font-size: 30px;
+    background-image: linear-gradient(45deg, #564498, #be55b7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .header h3 {
+      font-weight: 300;
+      color:#564498;
+      font-size: 22px;
+  }
+  
+    .container form {
+      top:0;
+      display: flex;
+      flex-direction: row; 
+      align-items: center;
+      justify-content:space-between;
+      margin: 80px;
+    }
+  
+    .button {
+      font-size:medium;
+      padding: 15px 75px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 22px;
+    }
+    
+    .container button:hover {
+      background-color: #be55b7;
+      cursor: pointer;
+    }
+    
+   .img {
+      align-items: center;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  
+    ::ng-deep mat-form-field {
+      margin: 5px;
+      border-radius: 15px;
+    }
+    
+    @media (max-width: 1000px) {
+      
+      .body{
+        flex-direction: column;
+        align-self: center;
+      }
+
+      .container form {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .container {
+        width: 80%;
+        margin: 20px;
+        align-self: center;
+      }
+
+      .header {
+        margin-top: 100px;
+      }
+  
+      mat-form-field {
+        width: 60%;
+        align-items: center;
+      }
+  
+      .img {
+        display: none;
+      }
+  
+      .button {
+          font-size:medium;
+          padding: 15px 55px;
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+    }

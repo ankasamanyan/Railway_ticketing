@@ -1,11 +1,10 @@
 generator client {
-	provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
-	// binaryTargets = ["native", "linux-musl-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]
 
 datasource db {
-	provider	= "postgresql"
-	url			= env("DB_URL")
+  provider = "postgresql"
+  url      = env("DB_URL")
 }
 
 model Station {
@@ -21,15 +20,17 @@ model Train {
   departureId     Int
   arrival         Station  @relation("ArrivalStation", fields: [arrivalId], references: [id])
   arrivalId       Int
+  date            DateTime
   departureTime   DateTime
   arrivalTime     DateTime
-  price           Int
+  price           Float
+  fastTrain       Boolean
+  Ticket        Ticket[]    @relation("TrainId")
 }
 
-// model Ticket {
-//   departure       String
-//   arrival         String
-//   departureTime   DateTime
-//   price           Int
-// }
+model Ticket {
+  id              Int      @id @default(autoincrement())
+  train           Train    @relation("TrainId", fields: [trainId], references: [id])
+  trainId         Int
+}
 

@@ -1,36 +1,36 @@
 .body {
-    min-height: 80vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-direction: column; 
-    align-items: center;
-    overflow: hidden;
-  }
+  min-height: 80vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
+  align-items: center;
+  overflow: hidden;
+}
   
-  .container {
-    background-color: rgba(255, 255, 255, 0.256);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 1300px;
-    width: calc(80% - 20px);
-    position: relative;
+.container {
+  background-color: rgba(255, 255, 255, 0.256);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 1300px;
+  width: calc(80% - 20px);
+  position: relative;
 
-  }
+}
   
-  .header {
-    margin-bottom: 30px;
-    text-align: center;
-    color: #564498;
-  }
+.header {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #564498;
+}
 
- .header h1 {
-    font-weight: 600;
-    font-size: 30px;
-    background-image: linear-gradient(45deg, #564498, #be55b7);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.header h1 {
+  font-weight: 600;
+  font-size: 30px;
+  background-image: linear-gradient(45deg, #564498, #be55b7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .header h3 {
@@ -47,18 +47,7 @@
     justify-content:space-between;
     margin: 80px;
   }
-  
-  .container input {
-    background-color: rgba(255, 255, 255, 0.619);
-    font-size:medium;
-    align-content: normal;
-    padding: 15px 10px;
-    margin:10px;
-    border: none;
-    border-radius: 10px;
-    width: 25%;
-  }
-   
+
   .button {
     font-size:medium;
     padding: 15px 75px;
@@ -71,27 +60,37 @@
     background-color: #be55b7;
     cursor: pointer;
   }
+  
+ .img {
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
   ::ng-deep mat-form-field {
     margin: 5px;
-    width: 300px;
     border-radius: 15px;
   }
 
   @media (max-width: 1000px) {
 
     .container form {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
     }
 
     .header {
-        margin-top: 100px;
+      margin-top: 100px;
     }
 
-    input {
-        width: 50%;
-        align-items: center;
+    mat-form-field {
+      width: 60%;
+      align-items: center;
+    }
+
+    .img {
+      display: none;
     }
 
     .button {
@@ -102,3 +101,15 @@
       }
     
   }
+  /*   
+  .container input {
+    background-color: rgba(255, 255, 255, 0.619);
+    font-size:medium;
+    align-content: normal;
+    padding: 15px 10px;
+    margin:10px;
+    border: none;
+    border-radius: 10px;
+    width: 25%;
+  } */
+   

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
+import { AppTopBarComponent } from './components/app-top-bar/app-top-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({

@@ -9,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgFor } from '@angular/common';
 import { HomeService } from '../../services/home.service';
 import {FormsModule} from '@angular/forms';
-
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,9 @@ import {FormsModule} from '@angular/forms';
     MatSelectModule,
     NgFor,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -39,15 +42,10 @@ import {FormsModule} from '@angular/forms';
 })
 
 
-
 export class HomeComponent implements OnInit {
 
     public departureDropdownData: any[] = [];
-    public departureDropdownProperties: any[] = [];
-    
-    public arrivalDropdownData: any[] = [];
-    public arrivalDropdownProperties: any[] = [];
-    public timeTable: any[] = [];
+    public arrivalDropdownData:   any[] = [];
 
     constructor(private homeService: HomeService){}
 
@@ -64,7 +62,6 @@ export class HomeComponent implements OnInit {
         this.arrivalDropdownData = result;
       })
     }
-    /*  */
 
     ngOnInit(): void {
       /* initialising dropdown data */

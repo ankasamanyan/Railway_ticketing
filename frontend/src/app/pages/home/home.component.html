@@ -8,26 +8,46 @@
 
       <mat-form-field >
         <mat-label>
-          Departure
+          From:
         </mat-label>
         <mat-select required>
           <mat-option *ngFor="let departureCity of departureDropdownData" [value]="departureCity.name">
           {{departureCity.name}}
-          </mat-option>
+        </mat-option>
         </mat-select>
+       <mat-hint>CITY OF DEPARTURE</mat-hint>
       </mat-form-field>
-      <mat-icon svgIcon="thumbs-up" ></mat-icon>
+
+      <img class="img" src="../../../assets/2.png" height="20px">
+
       <mat-form-field>
         <mat-label>
-          Arrival
+          To:
         </mat-label>
         <mat-select  required>
           <mat-option [value]="arrivalCity" *ngFor="let arrivalCity of arrivalDropdownData">
             {{arrivalCity.name}}
           </mat-option>
         </mat-select>
+        <mat-hint>CITY OF ARRIVAL</mat-hint>
       </mat-form-field>
-        <button type="submit" class="button">
+
+      <mat-form-field class="date">
+        <mat-label>
+          Date:
+        </mat-label>
+        <input matInput [matDatepicker]="datepicker" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle  matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker >
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button  mat-stroked-button color="primary" matDatepickerApply>Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+
+        <button class="button">
           Search
         </button>
 
