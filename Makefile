@@ -5,14 +5,16 @@ run:
 
 build:
 	docker-compose up --build
-	@bash webserv/Pingwi.sh
 
 
 down:
 	docker-compose down
 
-login:
-	docker exec -it webserver-webserv-1 sh
+login_backend:
+	docker exec -it backend sh
+
+login_frontend:
+	docker exec -it frontend sh
 
 git:
 	git add .
