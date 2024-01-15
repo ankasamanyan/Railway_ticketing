@@ -6,13 +6,8 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class TrainService {
     constructor (private prisma: PrismaService) {}
 
-    async searchTicket(departure: string, arrival: string) {
-        return await this.prisma.train.findMany({
-          where: {
-            departureCity: departure,
-            arrivalCity: arrival,
-          },
-        });
+    async searchTicket() {
+        return await this.prisma.train.findMany({});
       }
 
 }
