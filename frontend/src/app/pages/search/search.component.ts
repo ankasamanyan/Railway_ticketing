@@ -1,18 +1,17 @@
-import { Component, Injectable, OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 import { HomeService } from '../../services/home.service';
-import { NgFor } from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatRadioModule} from '@angular/material/radio';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
+import { Component } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @Component({
@@ -31,7 +30,7 @@ import {MatRadioModule} from '@angular/material/radio';
     FormsModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatRadioModule
+    MatRadioModule,
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
@@ -43,6 +42,9 @@ import {MatRadioModule} from '@angular/material/radio';
 export class SearchComponent {
   public departureDropdownData: any[] = [];
   public arrivalDropdownData:   any[] = [];
+  public selectedDeparture: string = '';
+  public selectedArrival: string = '';
+  public ticketData: any[] = [];
 
   constructor(private homeService: HomeService){}
 
@@ -60,8 +62,18 @@ export class SearchComponent {
     })
   }
 
+  private getTicketData(){
+    this.homeService.getTicketData(this.selectedDeparture, this.selectedArrival).subscribe( (result) => {
+      this.ticketData = result;
+    })
+  }
+
   public search(){
-    console.log("Halp");
+
+    console.log(this.selectedDeparture);
+    console.log(this.selectedArrival);
+
+    this.getTicketData();
   }
 
   ngOnInit(): void {

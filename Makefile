@@ -1,18 +1,26 @@
+
+PINK	= "\033[0;35m"
+PURPLE	= "\033[0;34m"
+BLUE	= "\033[94m"
+RESET	= "\033[0m"
+
 all: run
 
 run:
 	docker-compose up
 
 build:
+	@echo $(PURPLE) ✨ Building the App ✨ $(RESET)
 	docker-compose up --build
-	@bash webserv/Pingwi.sh
-
 
 down:
 	docker-compose down
 
-login:
-	docker exec -it webserver-webserv-1 sh
+login_backend:
+	docker exec -it backend sh
+
+login_frontend:
+	docker exec -it frontend sh
 
 git:
 	git add .

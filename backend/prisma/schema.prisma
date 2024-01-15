@@ -16,21 +16,30 @@ model Station {
 
 model Train {
   id              Int      @id @default(autoincrement())
-  departure       Station  @relation("DepartureStation", fields: [departureId], references: [id])
-  departureId     Int
-  arrival         Station  @relation("ArrivalStation", fields: [arrivalId], references: [id])
-  arrivalId       Int
-  date            DateTime
-  departureTime   DateTime
-  arrivalTime     DateTime
+  departure       Station  @relation("DepartureStation", fields: [departureCity], references: [name])
+  departureCity   String
+  arrival         Station  @relation("ArrivalStation", fields: [arrivalCity], references: [name])
+  arrivalCity     String
+  date            DateTime  @db.Date()
+  departureTime   DateTime  @db.Time(0)
+  arrivalTime     DateTime  @db.Time(0)
   price           Float
   fastTrain       Boolean
-  Ticket        Ticket[]    @relation("TrainId")
+  ticket          Ticket[]    @relation("TrainId")
 }
 
 model Ticket {
   id              Int      @id @default(autoincrement())
   train           Train    @relation("TrainId", fields: [trainId], references: [id])
   trainId         Int
+  user            user[]   @relation("TicketId")
 }
 
+model user {
+  id              Int     @id @default(autoincrement())
+  name            String
+  surname         String
+  age             Int
+  ticket          Ticket  @relation("TicketId", fields: [ticketId], references: [id])
+  ticketId        Int
+}
