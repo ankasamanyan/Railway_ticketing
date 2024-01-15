@@ -1,0 +1,41 @@
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px;
+}
+
+.text {
+    text-align: center; 
+    flex: 50%;
+}
+
+h1 {
+    font-size: 42px;
+    background-image: linear-gradient(45deg, #564498, #be55b7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+p {
+    font-size: 24px;
+    color: #564498;
+}
+
+
+.image {
+    flex: 50%; 
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.button {
+    margin-top: 20px;
+    padding: 50 20px;
+}
