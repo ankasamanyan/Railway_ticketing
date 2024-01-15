@@ -1,8 +1,8 @@
 
-PINK	:= \033[0;35m
-PURPLE	:= \033[0;34m
-BLUE	:= \033[94m
-RESET	:= \033[0m
+PINK	= "\033[0;35m"
+PURPLE	= "\033[0;34m"
+BLUE	= "\033[94m"
+RESET	= "\033[0m"
 
 all: run
 
@@ -10,8 +10,8 @@ run:
 	docker-compose up
 
 build:
+	@echo $(PURPLE) ✨ Building the App ✨ $(RESET)
 	docker-compose up --build
-
 
 down:
 	docker-compose down

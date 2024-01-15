@@ -1,7 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { get } from 'http';
 import { StationService } from './station.service';
-import { log } from 'console';
 
 @Controller('station')
 export class StationController {

@@ -1,37 +1,5 @@
 <div class="body">
-  <div class="sidebar">
-      <h1 class="header">Search Filters</h1>
-      <form class="filter-form">
-        <label for="mat-radio-button">Show fast trains only</label>
-        <mat-radio-group aria-label="Show Fast trains" id="mat-radio-button">
-          <mat-radio-button mat-button color="primary" value="1">Yes</mat-radio-button>
-          <mat-radio-button mat-button color="primary" value="2">No</mat-radio-button>
-        </mat-radio-group>
-          <mat-form-field floatLabel="always">
-              <mat-label>From:</mat-label>
-              <input matInput type="number" class="example-right-align" placeholder="0">
-              <span matTextPrefix>$&nbsp;</span>
-              <span matTextSuffix>.00</span>
-            </mat-form-field>
-            <mat-form-field class="date">
-              <mat-label>
-                Date:
-              </mat-label>
-              <input matInput [matDatepicker]="datepicker">
-              <mat-hint>MM/DD/YYYY</mat-hint>
-              <mat-datepicker-toggle  matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
-              <mat-datepicker #datepicker >
-                <mat-datepicker-actions>
-                  <button mat-button matDatepickerCancel>Cancel</button>
-                  <button  mat-stroked-button color="primary" matDatepickerApply>Apply</button>
-                </mat-datepicker-actions>
-              </mat-datepicker>
-            </mat-form-field>
-  
-        <button class="button" >Apply</button>
-      </form>
-  </div>
-  <div class="container">
+  <div class="search-container">
       <div class="header">
           <h1>Explore your travel opportunities with us!</h1>
         <h3>Book your ticket now</h3>
@@ -41,8 +9,8 @@
           <mat-label>
             From:
           </mat-label>
-          <mat-select required>
-            <mat-option *ngFor="let departureCity of departureDropdownData" [value]="departureCity.name">
+          <mat-select required  [(value)]="selectedDeparture">
+            <mat-option [value]="departureCity.name" *ngFor="let departureCity of departureDropdownData" >
             {{departureCity.name}}
           </mat-option>
           </mat-select>
@@ -53,8 +21,8 @@
           <mat-label>
             To:
           </mat-label>
-          <mat-select  required>
-            <mat-option [value]="arrivalCity" *ngFor="let arrivalCity of arrivalDropdownData">
+          <mat-select  required [(value)]="selectedArrival" >
+            <mat-option [value]="arrivalCity.name" *ngFor="let arrivalCity of arrivalDropdownData" >
               {{arrivalCity.name}}
             </mat-option>
           </mat-select>
@@ -78,7 +46,37 @@
         <button class="button" (click)="search()">
           Search
         </button>
-
     </form>
+  </div>
+</div>
+<div class="ticket-body">
+<div class="container" >
+  <div class="item" *ngFor="let ticket of ticketData">
+    <div class="item-right">
+      <span class="num" >23.01</span>
+      <span class="up-border"></span>
+      <span class="down-border"></span>
+    </div> 
+    
+    <div class="item-left">
+      <p class="event">Train connection</p>
+      <h2 class="title">{{ticket.departureCity}} - {{ticket.arrivalCity}}</h2>
+      
+      <div class="sce">
+        <div class="icon">
+          <i class="fa fa-table"></i>
+        </div>
+        <p>Monday 15th 2016 <br/> 15:20Pm & 11:00Am</p>
+      </div>
+      <div class="fix"></div>
+      <div class="loc">
+        <div class="icon">
+          <i class="fa fa-map-marker"></i>
+        </div>
+        <p>North,Soth, United State , Amre <br/> Party Number 16,20</p>
+      </div>
+      <div class="fix"></div>
+      <button class="button">Book</button>
+    </div> 
   </div>
 </div>

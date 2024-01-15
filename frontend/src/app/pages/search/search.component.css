@@ -1,92 +1,63 @@
 .body {
-    display: flex;
-    margin-top: 20px;
-    width: calc(100% - 20px);
-  }
-  
-  .sidebar {
-    margin-left: 30px;
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    text-align: center;
-  }
-  
-  .filter-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .filter {
-    margin: 10px 0;
-  }
-  
-  .apply-filters-button {
-    font-size: medium;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  margin-top: 20px;
+  align-self: center;
+}
 
-  .container {
-    background-color: rgba(255, 255, 255, 0.256);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(75% - 20px);
-    position: relative;
-    margin: 0 20px;
-  }
-    
-  .header {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-align: center;
-    color: #564498;
-  }
-  
-  h1 {
-    margin-top: 50px;
-    font-weight: 600;
-    font-size: 30px;
-    background-image: linear-gradient(45deg, #564498, #be55b7);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  
-  .header h3 {
-      font-weight: 300;
-      color:#564498;
-      font-size: 22px;
-  }
-  
-    .container form {
-      top:0;
-      display: flex;
-      flex-direction: row; 
-      align-items: center;
-      justify-content:space-between;
-      margin: 80px;
-    }
-  
-    .button {
-      font-size:medium;
-      padding: 15px 75px;
-      margin-left: 20px;
-      margin-right: 20px;
-      margin-bottom: 22px;
-    }
-    
-    .container button:hover {
-      background-color: #be55b7;
-      cursor: pointer;
-    }
-    
+.search-container {
+  align-self: center;
+  background-color: rgba(255, 255, 255, 0.256);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: calc(85% - 20px); 
+  margin: auto; 
+}
+
+.header {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #564498;
+}
+
+h1 {
+  margin-top: 50px;
+  font-weight: 600;
+  font-size: 30px;
+  background-image: linear-gradient(45deg, #564498, #be55b7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.header h3 {
+  font-weight: 300;
+  color: #564498;
+  font-size: 22px;
+}
+
+.search-container form {
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 80px;
+}
+
+.button {
+  font-size: medium;
+  padding: 15px 75px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 22px;
+}
+
+.search-container button:hover {
+  background-color: #be55b7;
+  cursor: pointer;
+}
+
    .img {
       align-items: center;
       margin-bottom: 20px;
@@ -106,12 +77,12 @@
         align-self: center;
       }
 
-      .container form {
+      .search-container form {
         flex-direction: column;
         align-items: center;
       }
       
-      .container {
+      .search-container {
         width: 80%;
         margin: 20px;
         align-self: center;
@@ -137,3 +108,167 @@
           margin-right: 20px;
         }
     }
+
+    .ticket-body {
+      display: flex;
+      flex-direction: column;
+      width: calc(85% - 20px);
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    
+    div.container {
+      width: 100%;
+      max-width: 1350px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    
+    .container .item {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 25px 0; 
+      background:  rgba(255, 255, 255, 0.256);
+
+    }
+    
+    .container .item-right,
+    .container .item-left {
+      float: left;
+      padding: 20px;
+    }
+    
+    .container .item-right {
+      padding: 79px 50px;
+      margin-right: 20px;
+      width: 25%;
+      text-align: center;
+      position: relative;
+      height: 290px;
+    }
+    
+    .container .item-right .up-border,
+    .container .item-right .down-border {
+      padding: 14px 15px;
+      background: rgba(208, 210, 245);
+      border-radius: 50%;
+      position: absolute;
+    }
+    
+    .container .item-right .up-border {
+      top: -8px;
+      right: -35px;
+    }
+    
+    .container .item-right .down-border {
+      bottom: -13px;
+      right: -35px;
+    }
+    
+    .container .item-right .num {
+      font-size: 60px;
+      text-align: center;
+      background-image: linear-gradient(45deg, #564498, #be55b7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .container .item-right .day,
+    .container .item-left .event {
+      color: #555;
+      font-size: 20px;
+      margin-bottom: 9px;
+      background-image: linear-gradient(45deg, #564498, #be55b7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .container .item-right .day {
+      text-align: center;
+      font-size: 25px;
+    }
+    
+    .container .item-left {
+      width: 71%;
+      padding: 34px 0px 19px 46px;
+      border-left: 3px dotted #999;
+    }
+    
+    .container .item-left .title {
+      color: #111;
+      font-size: 34px;
+      margin-bottom: 12px;
+      background-image: linear-gradient(45deg, #564498, #be55b7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .container .item-left .sce {
+      margin-top: 5px;
+      display: block;
+    }
+    
+    .container .item-left .sce .icon,
+    .container .item-left .sce p,
+    .container .item-left .loc .icon,
+    .container .item-left .loc p {
+      float: left;
+      word-spacing: 5px;
+      letter-spacing: 1px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    
+    .container .item-left .sce .icon,
+    .container .item-left .loc .icon {
+      margin-right: 10px;
+      font-size: 20px;
+      color: #666;
+    }
+    
+    .container .item-left .loc {
+      display: block;
+    }
+    
+    .fix {
+      clear: both;
+    }
+  
+
+    @media only screen and (max-width: 1150px) {
+      .container .item {
+        width: 100%;
+        margin-right: 20px;
+      }
+    
+      div.container {
+        margin: 0 20px auto;
+      }
+    }
+    
+
+        
+  /* .search-container input {
+    background-color: rgba(255, 255, 255, 0.619);
+    font-size:medium;
+    align-content: normal;
+    padding: 15px 10px;
+    margin:10px;
+    border: none;
+    border-radius: 10px;
+    width: 25%;
+  }
+    */
