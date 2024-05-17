@@ -21,6 +21,7 @@ make build
 
 open http://localhost:4200
 
+</br>
 
 ![telegram-cloud-photo-size-2-5391174694222287857-y](https://github.com/ankasamanyan/Railway_ticketing/assets/89840461/c9d58792-c4ae-473a-8ba6-69271e9a46e0)
 
